@@ -1,7 +1,7 @@
 <?php
 // Enter your Host, username, password, database below.
 // I left password empty because i do not set password on localhost.
-$con = mysqli_connect("986.h.filess.io","KwestaDB_duckanyboy","45cd3f791b190d685d77192edd6b515a6001cd2f","KwestaDB_duckanyboy");
+$con = mysqli_connect("gby.h.filess.io","CryptoHome_bendrawdo","e22f8adc12cb77f02b55e4643ffcfb3ef4c58977","CryptoHome_bendrawdo");
 // Check connection
 if (mysqli_connect_errno())
   {
