@@ -55,7 +55,7 @@ VALUES ('$username', '$password', '$email', '$trn_date')";
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <div class="brand-logo">
-                <img src="img/logo-w-t-light.png" alt="logo">
+                img src="../../images/logo.svg" alt="logo">
               </div>
               <h4>Hello! Register an account to get started</h4>
               <h6 class="fw-light">Create an account.</h6>
