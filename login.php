@@ -91,7 +91,7 @@ and password='$password'";
                 </div>
                 
                 <div class="text-center mt-4 fw-light">
-                  Don't have an account? <a href="home.html" class="text-primary">Contact your account manager</a>
+                  Don't have an account? <a href="registration.php" class="text-primary">Register Here</a>
                 </div>
               </form>
             </div>
