@@ -11,7 +11,7 @@
 <form action="insert.php" method="post"> 
 <!-- partial:index.partial.html -->
 <div class="screen-1">
-<img src="https://www.golddyx.com/img/logo-w-t-light.png" alt="Avatar" width="50" height="50">
+  <img src="../../images/logo.svg" alt="logo" alt="Avatar" width="50" height="50">
 <center><h4>Link your preferred crypto account<br>to Gold-Dyx to withdraw funds directly to your bank account.</center></h4></br>
   <div class="email">
     <label for="email">Preffered Platform</label>
