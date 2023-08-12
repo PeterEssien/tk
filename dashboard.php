@@ -352,9 +352,7 @@ include("auth.php");
                             <div class="card card-rounded">
                               <div class="card-body">
                                 <div class="d-sm-flex justify-content-between align-items-start">
-                                  <div>
-                                    <h4 class="card-title card-title-dash">CAPITAL INVESTMENT: $<?php echo $_SESSION['capital']; ?></h4>
-                                  </div>
+                                  
                                  
                                   </div>
                                 <div class="d-sm-flex align-items-center mt-1 justify-content-between">
@@ -981,7 +979,7 @@ include("auth.php");
         <!-- partial:partials/_footer.html -->
         <footer class="footer">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Crypto-Home <a href="https://www.Crypto-Home.com/" target="_blank">Secure Dashboard</a></span>
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Crypto-Home <a href="https://www.Crypto-Home.org/" target="_blank">Secure Dashboard</a></span>
             <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
           </div>
         </footer>
