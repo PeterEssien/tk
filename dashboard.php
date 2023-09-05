@@ -10,7 +10,7 @@ include("auth.php");
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Crypto-Home - Dashboard </title>
+  <title>ROI LEDGER - Dashboard </title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
@@ -646,7 +646,7 @@ include("auth.php");
                           <div class="col-md-6 col-lg-6 grid-margin stretch-card">
                             <div class="card card-rounded">
                               <div class="card-body card-rounded">
-                                <h4 class="card-title  card-title-dash">Crypto-Home Recent Events</h4>
+                                <h4 class="card-title  card-title-dash">ROI LEDGER Recent Events</h4>
                                 <div class="list align-items-center border-bottom py-2">
                                   <div class="wrapper w-100">
                                     <p class="mb-2 font-weight-medium">
@@ -792,7 +792,7 @@ include("auth.php");
                                         <li class="d-block">
                                           <div class="form-check w-100">
                                             <label class="form-check-label">
-                                              <input class="checkbox" type="checkbox" checked> Create an account on Crypto-Home <i class="input-helper rounded"></i>
+                                              <input class="checkbox" type="checkbox" checked> Create an account on ROI LEDGER <i class="input-helper rounded"></i>
                                             </label>
                                             <div class="d-flex mt-2">
                                               <div class="ps-4 text-small me-3"><?php echo $_SESSION['trn_date']; ?></div>
@@ -804,7 +804,7 @@ include("auth.php");
                                         <li class="d-block">
                                           <div class="form-check w-100">
                                             <label class="form-check-label">
-                                              <input class="checkbox" type="checkbox"> Get familiar with the Crypto-Home Dashboard <i class="input-helper rounded"></i>
+                                              <input class="checkbox" type="checkbox"> Get familiar with the ROI LEDGER Dashboard <i class="input-helper rounded"></i>
                                             </label>
                                             <div class="d-flex mt-2">
                                               <div class="ps-4 text-small me-3">no timeframe</div>
@@ -815,7 +815,7 @@ include("auth.php");
                                         <li>
                                           <div class="form-check w-100">
                                             <label class="form-check-label">
-                                              <input class="checkbox" type="checkbox"> Make a deposit on Crypto-Home and earn $25 <i class="input-helper rounded"></i>
+                                              <input class="checkbox" type="checkbox"> Make a deposit on ROI LEDGER and earn $25 <i class="input-helper rounded"></i>
                                             </label>
                                             <div class="d-flex mt-2">
                                               <div class="ps-4 text-small me-3">today</div>
@@ -979,7 +979,7 @@ include("auth.php");
         <!-- partial:partials/_footer.html -->
         <footer class="footer">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Crypto-Home <a href="https://www.Crypto-Home.org/" target="_blank">Secure Dashboard</a></span>
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">ROI LEDGER <a href="https://www.ROI LEDGER.org/" target="_blank">Secure Dashboard</a></span>
             <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
           </div>
         </footer>
