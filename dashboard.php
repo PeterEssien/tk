@@ -251,7 +251,7 @@ include("auth.php");
 												</div>
 												<textarea rows="3" class="form-control" disabled>TD5QhqTXur2UtAnrKfD6PEecNkn5nxcisN</textarea>
 											</div>
-											<img class="card-img-top border" src="./dist/img/qr-code.svg" alt="QR-CODE">
+											<img class="card-img-top border" src="./dist/img/937c215d-72fb-433c-be35-fb835de95273.jpeg" alt="QR-CODE">
 										</div>
 									</div>
 								</div>
