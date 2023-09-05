@@ -249,7 +249,7 @@ include("auth.php");
 														<a href="#" class="small">Copy to Clipboard</a>
 													</div>
 												</div>
-												<textarea rows="3" class="form-control" disabled>USDTuwZhJj6SmqEUWvrhEeG1Rn9Cvgvn8eCkgW649zJR32HT3vcSwdo3eET7ANk2pLXs4PvkFYrnk6K1GCnrsQYD2HVYQpQ89pR</textarea>
+												<textarea rows="3" class="form-control" disabled>TD5QhqTXur2UtAnrKfD6PEecNkn5nxcisN</textarea>
 											</div>
 											<img class="card-img-top border" src="./dist/img/qr-code.svg" alt="QR-CODE">
 										</div>
