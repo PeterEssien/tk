@@ -3,1015 +3,477 @@ require('db.php');
 include("auth.php");
 ?>
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>ROI LEDGER - Dashboard </title>
-  <!-- plugins:css -->
-  <link rel="stylesheet" href="vendors/feather/feather.css">
-  <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="vendors/typicons/typicons.css">
-  <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
-  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
-  <!-- endinject -->
-  <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-  <link rel="stylesheet" href="js/select.dataTables.min.css">
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
-  <link rel="stylesheet" href="css/vertical-layout-light/style.css">
-  <!-- endinject -->
-  <link rel="shortcut icon" href="images/favicon.svg" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>ROI LEDGER Wallet</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+	<meta name="msapplication-TileColor" content="#43b380" />
+	<meta name="theme-color" content="#43b380" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="MobileOptimized" content="320" />
+	<link rel="shortcut icon" href="./dist/ico/favicon.ico">
+	<link rel="icon" type="image/png" sizes="32x32" href="./dist/ico/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./dist/ico/favicon-16x16.png">
+	<link rel="manifest" href="./dist/ico/site.webmanifest">
+	<link rel="mask-icon" href="./dist/ico/safari-pinned-tab.svg" color="#43b380">
+	<link href="./dist/css/tabler.min.css" rel="stylesheet" />
+	<link href="./dist/css/style.css" rel="stylesheet" />
+	<style>
+		body {
+			display: none;
+		}
+
+	</style>
 </head>
-<body>
-  <div class="container-scroller"> 
-    <!-- partial:partials/_navbar.html -->
-    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
-      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
-        <div class="me-3">
-          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
-            <span class="icon-menu"></span>
-          </button>
-        </div>
-        <div>
-          <a class="navbar-brand brand-logo" href="index.html">
-            <img src="images/logo.svg" alt="logo" />
-          </a>
-          <a class="navbar-brand brand-logo-mini" href="index.html">
-            <img src="images/logo.svg" alt="logo" />
-          </a>
-        </div>
-      </div>
-      <div class="navbar-menu-wrapper d-flex align-items-top"> 
-        <ul class="navbar-nav">
-          <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-            <h1 class="welcome-text">Good Day, <span class="text-black fw-bold"><?php echo $_SESSION['username']; ?></span></h1>
-            <h3 class="welcome-sub-text">Your personalized dashboard </h3>
-          </li>
-        </ul>
-        <ul class="navbar-nav ms-auto">
-          
 
-          <li class="nav-item d-none d-lg-block">
-            <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
-              <span class="input-group-addon input-group-prepend border-right">
-                <span class="icon-calendar input-group-text calendar-icon"></span>
-              </span>
-              <input type="text" class="form-control">
-            </div>
-          </li>
-          
-          
+<body class="antialiased">
+	<div class="page">
+		<header class="navbar navbar-expand-lg navbar-dark navbar-overlap">
+			<div class="container-xl">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<a href="./index.html" class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pr-0 pr-md-3">
+					<img src="./dist/img/turtlecoin-logo.svg" alt="Tabler" class="navbar-brand-image">
+				</a>
+				<div class="navbar-nav flex-row order-md-last">
+					<div class="nav-item d-none d-md-flex">
+						<a href="#" class="nav-link mode-toggle">
+							<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-md" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+								<path stroke="none" d="M0 0h24v24H0z"></path>
+								<circle cx="12" cy="12" r="9"></circle>
+								<line x1="12" y1="3" x2="12" y2="21"></line>
+								<path d="M12 9l4.65 -4.65"></path>
+								<path d="M12 14.3l7.37 -7.37"></path>
+								<path d="M12 19.6l8.85 -8.85"></path>
+							</svg>
+						</a>
+					</div>
+					<div class="nav-item dropdown">
+						<a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-toggle="dropdown" aria-expanded="false">
+							<span class="avatar" style="background-image: url(https://avatars2.githubusercontent.com/u/8020386?s=460&u=fff976c157cb093f1c55a27f11ab57e5666b9eb8&v=4)"></span>
+							<div class="d-none d-xl-block pl-2">
+								<div><?php echo $_SESSION['username']; ?></p></div>
+								<div class="mt-1 small text-muted"><?php echo $_SESSION['trn_date']; ?></div>
+							</div>
+						</a>
+						<div class="dropdown-menu dropdown-menu-right">
+							<a class="dropdown-item" href="#">
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon dropdown-item-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+									<path stroke="none" d="M0 0h24v24H0z"></path>
+									<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+									<circle cx="12" cy="12" r="3"></circle>
+								</svg>
+								Action
+							</a>
+							<a class="dropdown-item" href="#">
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon dropdown-item-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+									<path stroke="none" d="M0 0h24v24H0z"></path>
+									<path d="M9 7 h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3"></path>
+									<path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3"></path>
+									<line x1="16" y1="5" x2="19" y2="8"></line>
+								</svg>
+								Another action
+							</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" class="icon dropdown-item-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+									<path stroke="none" d="M0 0h24v24H0z"></path>
+									<line x1="12" y1="5" x2="12" y2="19"></line>
+									<line x1="5" y1="12" x2="19" y2="12"></line>
+								</svg>
+								Separated link</a>
+						</div>
+					</div>
+				</div>
+				<div class="collapse navbar-collapse" id="navbar-menu">
+					<div class="d-flex flex-column flex-lg-row flex-fill align-items-stretch align-items-lg-center">
+						<ul class="navbar-nav">
+							<li class="nav-item active">
+								<a class="nav-link" href="./index.html">
+									<span class="nav-link-icon d-lg-inline-block">
+										<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+											<path stroke="none" d="M0 0h24v24H0z"></path>
+											<polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3"></polyline>
+											<line x1="12" y1="12" x2="20" y2="7.5"></line>
+											<line x1="12" y1="12" x2="12" y2="21"></line>
+											<line x1="12" y1="12" x2="4" y2="7.5"></line>
+											<line x1="16" y1="5.25" x2="8" y2="9.75"></line>
+										</svg>
+									</span>
+									<span class="nav-link-title">
+										Wallet
+									</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./faq.html">
+									<span class="nav-link-icon d-lg-inline-block">
+										<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+											<path stroke="none" d="M0 0h24v24H0z"></path>
+											<path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873z"></path>
+										</svg>
+									</span>
+									<span class="nav-link-title">
+										Faq
+									</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./terms.html">
+									<span class="nav-link-icon d-lg-inline-block">
+										<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+											<path stroke="none" d="M0 0h24v24H0z"></path>
+											<rect x="4" y="4" width="6" height="5" rx="2"></rect>
+											<rect x="4" y="13" width="6" height="7" rx="2"></rect>
+											<rect x="14" y="4" width="6" height="7" rx="2"></rect>
+											<rect x="14" y="15" width="6" height="5" rx="2"></rect>
+										</svg>
+									</span>
+									<span class="nav-link-title">
+										Terms
+									</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./login.html">
+									<span class="nav-link-icon d-lg-inline-block">
+										<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+											<path stroke="none" d="M0 0h24v24H0z"></path>
+											<polyline points="14 3 14 8 19 8"></polyline>
+											<path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
+											<line x1="9" y1="9" x2="10" y2="9"></line>
+											<line x1="9" y1="13" x2="15" y2="13"></line>
+											<line x1="9" y1="17" x2="15" y2="17"></line>
+										</svg>
+									</span>
+									<span class="nav-link-title">
+										Login
+									</span>
+								</a>
+							</li>
+						</ul>
+						<div class="ml-lg-auto pl-lg-4 py-2 py-md-0 order-last flex-grow-1 flex-md-grow-1">
+							<div>
+								<div class="input-icon">
+									<span class="input-icon-addon">
+										<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+											<path stroke="none" d="M0 0h24v24H0z"></path>
+											<circle cx="10" cy="10" r="7"></circle>
+											<line x1="21" y1="21" x2="15" y2="15"></line>
+										</svg>
+									</span>
+									<input type="text" id="searchValue" class="form-control form-control-dark" placeholder="Search by Block Height / Hash, Transaction Hash, or Payment Id">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="content">
+			<div class="container-xl">
+				<!-- Page title -->
+				<div class="page-header text-white">
+					<div class="row align-items-center">
+						<div class="col-auto">
+							<h2 class="page-title">
+								ROI LEDGER Wallet
+							</h2>
+						</div>
+					</div>
+				</div>
+				<div class="row row-Augk row-cards">
+					<div class="col-lg-4">
+						<div class="col-12">
 
-          
-          <li class="nav-item dropdown d-none d-lg-block user-dropdown">
-            <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-              <img class="img-xs rounded-circle" src="images/logo.svg" alt="Profile image"> </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-              <div class="dropdown-header text-center">
-                <img class="img-md rounded-circle" src="images/faces/face8.jpg" alt="Profile image">
-                <p class="mb-1 mt-3 font-weight-semibold"><?php echo $_SESSION['username']; ?></p>
-                <p class="fw-light text-muted mb-0"><?php echo $_SESSION['email']; ?></p>
-              </div>
-             
-            </div>
-          </li>
-        </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
-          <span class="mdi mdi-menu"></span>
-        </button>
-      </div>
-    </nav>
-    <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
-      <!-- partial:partials/_settings-panel.html -->
-     
+							<div class="card">
+								<div class="card-body">
+									<div class="d-flex align-items-center">
+										<div class="subheader">Balance</div>
+									</div>
+									<div class="h1 mb-3"><?php echo $_SESSION['profits']; ?> USD</div>
+									<div class="d-flex mb-2">
+										<div>USDT</div>
+										<div class="ml-auto">
+											<span class="text-green d-inline-flex align-items-center lh-1">
+												7.21% <svg xmlns="http://www.w3.org/2000/svg" class="icon ml-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+													<path stroke="none" d="M0 0h24v24H0z"></path>
+													<polyline points="3 17 9 11 13 15 21 7"></polyline>
+													<polyline points="14 7 21 7 21 14"></polyline>
+												</svg>
+											</span>
+										</div>
+									</div>
+									<div class="d-flex">
+										<div>BTC</div>
+										<div class="ml-auto">
+											<span class="text-green d-inline-flex align-items-center lh-1">
+												5.87% <svg xmlns="http://www.w3.org/2000/svg" class="icon ml-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+													<path stroke="none" d="M0 0h24v24H0z"></path>
+													<polyline points="3 17 9 11 13 15 21 7"></polyline>
+													<polyline points="14 7 21 7 21 14"></polyline>
+												</svg>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
 
-      <div id="right-sidebar" class="settings-panel">
-        <i class="settings-close ti-close"></i>
-        <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" id="todo-tab" data-bs-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="chats-tab" data-bs-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">CHATS</a>
-          </li>
-        </ul>
-        <div class="tab-content" id="setting-content">
-          <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
-            <div class="add-items d-flex px-3 mb-0">
-              <form class="form w-100">
-                <div class="form-group d-flex">
-                  <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
-                  <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button>
-                </div>
-              </form>
-            </div>
-            <div class="list-wrapper px-3">
-              <ul class="d-flex flex-column-reverse todo-list">
-                <li>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox">
-                      Team review meeting at 3.00 PM
-                    </label>
-                  </div>
-                  <i class="remove ti-close"></i>
-                </li>
-                <li>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox">
-                      Prepare for presentation
-                    </label>
-                  </div>
-                  <i class="remove ti-close"></i>
-                </li>
-                <li>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox">
-                      Resolve all the low priority tickets due today
-                    </label>
-                  </div>
-                  <i class="remove ti-close"></i>
-                </li>
-                <li class="completed">
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox" checked>
-                      Schedule meeting for next week
-                    </label>
-                  </div>
-                  <i class="remove ti-close"></i>
-                </li>
-                <li class="completed">
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox" checked>
-                      Project review
-                    </label>
-                  </div>
-                  <i class="remove ti-close"></i>
-                </li>
-              </ul>
-            </div>
-            <h4 class="px-3 text-muted mt-5 fw-light mb-0">Events</h4>
-            <div class="events pt-4 px-3">
-              <div class="wrapper d-flex mb-2">
-                <i class="ti-control-record text-primary me-2"></i>
-                <span>Feb 11 2018</span>
-              </div>
-              <p class="mb-0 font-weight-thin text-gray">Creating component page build a js</p>
-              <p class="text-gray mb-0">The total number of sessions</p>
-            </div>
-            <div class="events pt-4 px-3">
-              <div class="wrapper d-flex mb-2">
-                <i class="ti-control-record text-primary me-2"></i>
-                <span>Feb 7 2018</span>
-              </div>
-              <p class="mb-0 font-weight-thin text-gray">Meeting with Alisa</p>
-              <p class="text-gray mb-0 ">Call Sarah Graves</p>
-            </div>
-          </div>
-          <!-- To do section tab ends -->
-          <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
-            <div class="d-flex align-items-center justify-content-between border-bottom">
-              <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
-              <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 fw-normal">See All</small>
-            </div>
-            <ul class="chat-list">
-              <li class="list active">
-                <div class="profile"><img src="images/faces/face1.jpg" alt="image"><span class="online"></span></div>
-                <div class="info">
-                  <p>Thomas Douglas</p>
-                  <p>Available</p>
-                </div>
-                <small class="text-muted my-auto">19 min</small>
-              </li>
-              <li class="list">
-                <div class="profile"><img src="images/faces/face2.jpg" alt="image"><span class="offline"></span></div>
-                <div class="info">
-                  <div class="wrapper d-flex">
-                    <p>Catherine</p>
-                  </div>
-                  <p>Away</p>
-                </div>
-                <div class="badge badge-success badge-pill my-auto mx-2">4</div>
-                <small class="text-muted my-auto">23 min</small>
-              </li>
-              <li class="list">
-                <div class="profile"><img src="images/faces/face3.jpg" alt="image"><span class="online"></span></div>
-                <div class="info">
-                  <p>Daniel Russell</p>
-                  <p>Available</p>
-                </div>
-                <small class="text-muted my-auto">14 min</small>
-              </li>
-              <li class="list">
-                <div class="profile"><img src="images/faces/face4.jpg" alt="image"><span class="offline"></span></div>
-                <div class="info">
-                  <p>James Richardson</p>
-                  <p>Away</p>
-                </div>
-                <small class="text-muted my-auto">2 min</small>
-              </li>
-              <li class="list">
-                <div class="profile"><img src="images/faces/face5.jpg" alt="image"><span class="online"></span></div>
-                <div class="info">
-                  <p>Madeline Kennedy</p>
-                  <p>Available</p>
-                </div>
-                <small class="text-muted my-auto">5 min</small>
-              </li>
-              <li class="list">
-                <div class="profile"><img src="images/faces/face6.jpg" alt="image"><span class="online"></span></div>
-                <div class="info">
-                  <p>Sarah Graves</p>
-                  <p>Available</p>
-                </div>
-                <small class="text-muted my-auto">47 min</small>
-              </li>
-            </ul>
-          </div>
-          <!-- chat tab ends -->
-        </div>
-      </div>
-      <!-- partial -->
-      <!-- partial:partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="">
-              <i class="mdi mdi-grid-large menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
-            </a>
-          </li>
-          
-          <li class="nav-item">
-            <a class="nav-link" href="deposit.html">
-              <i class="menu-icon mdi mdi-file-document"></i>
-              <span class="menu-title">Deposit</span>
-            </a>
-          </li>
+							<div class="card">
+								<!-- Cards navigation -->
+								<ul class="nav nav-tabs" data-toggle="tabs">
+									<li class="nav-item col-6">
+										<a href="#tab-top-1" class="nav-link justify-content-center active" data-toggle="tab">Withdraw</a>
+									</li>
+									<li class="nav-item col-6">
+										<a href="#tab-top-2" class="nav-link justify-content-center" data-toggle="tab">Deposit</a>
+									</li>
+								</ul>
+								<div class="tab-content">
+									<!-- Content of card #1 -->
+									<div id="tab-top-1" class="tab-pane show active">
+										<div class="card-body">
+											<div class="mb-3">
+												<label class="form-label">Wallet Address:</label>
+												<textarea rows="3" class="form-control" placeholder="Wallet Address"></textarea>
+											</div>
+											<div class="mb-3">
+												<label class="form-label">Your Payment ID:</label>
+												<input type="text" class="form-control" placeholder="Payment ID">
+											</div>
+											<div class="mb-3">
+												<label class="form-label">Amount :</label>
+												<div class="input-group input-group-flat">
+													<input type="text" class="form-control" placeholder="Min withdrawal amount: 100">
+													<span class="input-group-text">
+														<a href="#" class="input-group-link">MAX</a>
+													</span>
+												</div>
+											</div>
+											<div class="mb-3">
+												<label class="form-label">Remark:</label>
+												<input type="text" class="form-control" placeholder="Remark">
+											</div>
+											<div class="form-footer">
+												<button type="submit" class="btn btn-primary btn-block">Withdraw</button>
+											</div>
+										</div>
+									</div>
+									<!-- Content of card #2 -->
+									<div id="tab-top-2" class="tab-pane">
+										<div class="card-body">
+											<div class="mb-3">
+												<div class="d-flex">
+													<label class="form-label">Wallet Address:</label>
+													<div class="ml-auto form-label">
+														<a href="#" class="small">Copy to Clipboard</a>
+													</div>
+												</div>
+												<textarea rows="3" class="form-control" disabled>USDTuwZhJj6SmqEUWvrhEeG1Rn9Cvgvn8eCkgW649zJR32HT3vcSwdo3eET7ANk2pLXs4PvkFYrnk6K1GCnrsQYD2HVYQpQ89pR</textarea>
+											</div>
+											<img class="card-img-top border" src="./dist/img/qr-code.svg" alt="QR-CODE">
+										</div>
+									</div>
+								</div>
+							</div>
 
-           <li class="nav-item">
-            <a class="nav-link" href="withdraw.php">
-              <i class="menu-icon mdi mdi-file-document"></i>
-              <span class="menu-title">Withdrawal</span>
-            </a>
-          </li>
-          
-        <li class="nav-item">
-            <a class="nav-link" href="https://ayidouble.github.io/Customizable-Crypto-Currency-Dashboard-with-Chart/BTCUSD">
-              <i class="menu-icon mdi mdi-file-document"></i>
-              <span class="menu-title">TradeView</span>
-            </a>
-          </li>
-        
-          
+						</div>
+					</div>
+					<div class="col-lg-8">
+						<div class="card">
+							<div class="card-header">
+								<h4 class="card-title">Transaction History</h4>
+							</div>
+							<div class="card-body o-auto p-0" style="height: 15rem">
+								<div class="table-responsive">
+									<table class="table table-vcenter text-nowrap card-table no-footer table-striped" role="grid">
+										<thead>
+											<tr role="row">
+												<th>Date &amp; Time</th>
+												<th>Amount</th>
+												<th>Transaction Hash</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>09 Aug 2019 07:43:48</td>
+												<td><span class="status-icon bg-deposit"></span>324,742.21 USDT</td>
+												<td><a href="./transaction.html?hash=a537fb2586b9a673d0cb7afd024f7451d39fd210472ef93577b6afce09a06e36">a537fb2586b9a673d0cb7afd024f7451d39fd210472ef93577b6afce09a06e36</a></td>
+											</tr>
+											<tr>
+												<td>09 Aug 2023 08:29:28</td>
+												<td><span class="status-icon bg-withdraw"></span>1,937,537 USDT</td>
+												<td><a href="./transaction.html?hash=8de678287aac93c8dfb3571a8a07ce1b60ec9a33a9cf599488a248d4c5849fe0">8de678287aac93c8dfb3571a8a07ce1b60ec9a33a9cf599488a248d4c5849fe0</a></td>
+											</tr>
+											<tr>
+												<td>09 Aug 2023 08:20:05</td>
+												<td>2,033,206 USDT</td>
+												<td><a href="./transaction.html?hash=98d598a16113038036b0dc7e48735936fc0b35bbbfc0c4befb38a05f5250292a">98d598a16113038036b0dc7e48735936fc0b35bbbfc0c4befb38a05f5250292a</a></td>
+											</tr>
+											<tr>
+												<td>09 Aug 2023 08:17:02</td>
+												<td>2,091,396 USDT</td>
+												<td><a href="./transaction.html?hash=6aa54ab372ae2870f9225916606c3db6fc5d6380428050516f1944cfc968fc10">6aa54ab372ae2870f9225916606c3db6fc5d6380428050516f1944cfc968fc10</a></td>
+											</tr>
+											<tr>
+												<td>09 Aug 2023 08:10:47</td>
+												<td>2,180,074 USDT</td>
+												<td><a href="./transaction.html?hash=90b770d1f745dd20bc76474cda281dca7346dca0bbfe67e38de2ebfdd3a3b0ef">90b770d1f745dd20bc76474cda281dca7346dca0bbfe67e38de2ebfdd3a3b0ef</a></td>
+											</tr>
+											<tr>
+												<td>09 Aug 2023 08:02:51</td>
+												<td>5,000,897 USDT</td>
+												<td><a href="./transaction.html?hash=4ea787fda6e30d355f08ed1cce90f63aeac0c47f7b414ab8183c116cdfd9e69c">4ea787fda6e30d355f08ed1cce90f63aeac0c47f7b414ab8183c116cdfd9e69c</a></td>
+											</tr>
+											<tr>
+												<td>09 Aug 2023 07:58:39</td>
+												<td>1,427,469 USDT</td>
+												<td><a href="./transaction.html?hash=9ade7eee1a910623b972356f076af6b340fa8dab4950055619e7bbe910a2cc59">9ade7eee1a910623b972356f076af6b340fa8dab4950055619e7bbe910a2cc59</a></td>
+											</tr>
+											<tr>
+												<td>09 Aug 2023 07:52:54</td>
+												<td>867,104 USDT</td>
+												<td><a href="./transaction.html?hash=9be7d4edb7d926c2d57e38b9885516b75552dd4cbc32ccffcf609ccdc9411c66">9be7d4edb7d926c2d57e38b9885516b75552dd4cbc32ccffcf609ccdc9411c66</a></td>
+											</tr>
+											<tr>
+												<td>09 Aug 2023 07:48:31</td>
+												<td>1,203,685 USDT</td>
+												<td><a href="./transaction.html?hash=bcbbe10ab48d2224627c6c4b886dcc41d60c3c379a471f5b39d0f06f92a695df">bcbbe10ab48d2224627c6c4b886dcc41d60c3c379a471f5b39d0f06f92a695df</a></td>
+											</tr>
+											<tr>
+												<td>09 Aug 2023 08:44:54</td>
+												<td>71,098 USDT</td>
+												<td><a href="./transaction.html?hash=9325ce07f9a69fc243aaae954b4e096daa2a527aa8d76806d12f3e40cbf881b0">9325ce07f9a69fc243aaae954b4e096daa2a527aa8d76806d12f3e40cbf881b0</a></td>
+											</tr>
+											<tr>
+												<td>09 Aug 2023 07:48:31</td>
+												<td>153,349 USDT</td>
+												<td><a href="./transaction.html?hash=bcbbe10ab48d2224627c6c4b886dcc41d60c3c379a471f5b39d0f06f92a695df">bcbbe10ab48d2224627c6c4b886dcc41d60c3c379a471f5b39d0f06f92a695df</a></td>
+											</tr>
+											<tr>
+												<td>09 Aug 2023 06:24:54</td>
+												<td>710,478 USDT</td>
+												<td><a href="./transaction.html?hash=92909fc43c4dde12a7329d46fd7ae7a559595e7f093839f945b3abb436a07363">92909fc43c4dde12a7329d46fd7ae7a559595e7f093839f945b3abb436a07363</a></td>
+											</tr>
+											<tr>
+												<td>09 Aug 2023 14:50:19</td>
+												<td>722,328 USDT</td>
+												<td><a href="./transaction.html?hash=d9e537c2534e61498df4f4ae6ade680666d908a9b7c7bf44a9316e56b3d102b2">d9e537c2534e61498df4f4ae6ade680666d908a9b7c7bf44a9316e56b3d102b2</a></td>
+											</tr>
+											<tr>
+												<td>09 Aug 2023 14:10:11</td>
+												<td>816,892 USDT</td>
+												<td><a href="./transaction.html?hash=f9904c4125a18473ef03a5f018dddaf270021e51245ebcddb85b27cc2f8187a6">f9904c4125a18473ef03a5f018dddaf270021e51245ebcddb85b27cc2f8187a6</a></td>
+											</tr>
+											<tr>
+												<td>09 Aug 2023 13:20:46</td>
+												<td>726,024 USDT</td>
+												<td><a href="./transaction.html?hash=95c2252a0edf4169e755fa6e200994b3745cd77b1560914e6f41bf4e1728565d">95c2252a0edf4169e755fa6e200994b3745cd77b1560914e6f41bf4e1728565d</a></td>
+											</tr>
+											<tr>
+												<td>09 Aug 2023 12:33:42</td>
+												<td>746,208 USDT</td>
+												<td><a href="./transaction.html?hash=5443a4cd7b21b7976ff070c8dc9067dd4ba9aa112e31eddd0bad6e2c2d481885">5443a4cd7b21b7976ff070c8dc9067dd4ba9aa112e31eddd0bad6e2c2d481885</a></td>
+											</tr>
+											<tr>
+												<td>09 Aug 2023 11:36:42</td>
+												<td>773,907 USDT</td>
+												<td><a href="./transaction.html?hash=984dcc0a918ef575d43243f496f15967e54fedf853caa5c0246a3a9ade2bce9c">984dcc0a918ef575d43243f496f15967e54fedf853caa5c0246a3a9ade2bce9c</a></td>
+											</tr>
+											<tr>
+												<td>09 Aug 2023 10:39:04</td>
+												<td>2,219,334 USDT</td>
+												<td><a href="./transaction.html?hash=f7fbe1cd7f48e39bba99b3263fce0623865ce61402d8f1dafb76181902b11928">f7fbe1cd7f48e39bba99b3263fce0623865ce61402d8f1dafb76181902b11928</a></td>
+											</tr>
+											<tr>
+												<td>09 Aug 2023 10:39:04</td>
+												<td>2,459,398 USDT</td>
+												<td><a href="./transaction.html?hash=f7fbe1cd7f48e39bba99b3263fce0623865ce61402d8f1dafb76181902b11928">f7fbe1cd7f48e39bba99b3263fce0623865ce61402d8f1dafb76181902b11928</a></td>
+											</tr>
+											<tr>
+												<td>09 Aug 2023 06:24:54</td>
+												<td>2,193,474 USDT</td>
+												<td><a href="./transaction.html?hash=92909fc43c4dde12a7329d46fd7ae7a559595e7f093839f945b3abb436a07363">92909fc43c4dde12a7329d46fd7ae7a559595e7f093839f945b3abb436a07363</a></td>
+											</tr>
+											<tr>
+												<td>Sun, 10 Aug 2023 22:51:58</td>
+												<td>2,161,464 USDT</td>
+												<td><a href="./transaction.html?hash=e6372768a387b4835d6258c46c00d67d22c7dfcff6ee63f342570df2fa73793f">e6372768a387b4835d6258c46c00d67d22c7dfcff6ee63f342570df2fa73793f</a></td>
+											</tr>
+											<tr>
+												<td>Sun, 10 Aug 2023 23:18:43</td>
+												<td>2,158,294 USDT</td>
+												<td><a href="./transaction.html?hash=4364bd97f7dbbab97cdbe6670dc57eeda28103e05042d3ad3c04e03e7672360a">4364bd97f7dbbab97cdbe6670dc57eeda28103e05042d3ad3c04e03e7672360a</a></td>
+											</tr>
+											<tr>
+												<td>Mon, 11 Aug 2023 16:53:42</td>
+												<td>2,255,812 USDT</td>
+												<td><a href="./transaction.html?hash=a6afec96644362d552c9b1d45614568c103e8b69cb5690c5a032c52cc8fb2386">a6afec96644362d552c9b1d45614568c103e8b69cb5690c5a032c52cc8fb2386</a></td>
+											</tr>
+											<tr>
+												<td>Mon, 11 Aug 2023 08:06:55</td>
+												<td>2,104,225 USDT</td>
+												<td><a href="./transaction.html?hash=4455a9662c973ad98ad5ea35e44eeefbf163bac5d726901f8c4f09d2b26021bb">4455a9662c973ad98ad5ea35e44eeefbf163bac5d726901f8c4f09d2b26021bb</a></td>
+											</tr>
+											<tr>
+												<td>Sun, 10 Aug 2023 07:11:41</td>
+												<td>2,089,104 USDT</td>
+												<td><a href="./transaction.html?hash=b754c533f2b03320e922dd6bbdf9a82ab0bbd756a4fcf32406562fdac01b5250">b754c533f2b03320e922dd6bbdf9a82ab0bbd756a4fcf32406562fdac01b5250</a></td>
+											</tr>
+											<tr>
+												<td>Sun, 10 Aug 2023 14:10:02</td>
+												<td>2,115,345 USDT</td>
+												<td><a href="./transaction.html?hash=b43c306b055e0ef9993289e11149f603aa0e013bb5063a1e404ea1e171b63b2f">b43c306b055e0ef9993289e11149f603aa0e013bb5063a1e404ea1e171b63b2f</a></td>
+											</tr>
+											<tr>
+												<td>09 Aug 2023 16:26:43</td>
+												<td>2,257,959 USDT</td>
+												<td><a href="./transaction.html?hash=950b5592352cb1315eb5f2b2c61d1b3eb548999ff9ca88095ea083da4633ba57">950b5592352cb1315eb5f2b2c61d1b3eb548999ff9ca88095ea083da4633ba57</a></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<footer class="footer footer-transparent">
+				<div class="container">
+					<div class="row text-center align-items-center flex-row-reverse">
+						<div class="col-lg-auto ml-lg-auto">
+							<ul class="list-inline list-inline-dots mb-0">
+								<li class="list-inline-item"><a href="https://github.com/l33d4n/USDT-wallet" target="_blank" class="link-secondary">Source code</a></li>
+							</ul>
+						</div>
+						<div class="col-12 col-lg-auto mt-3 mt-lg-0">
+							Copyright © 2023 Powerd By
+							<a href="https://turtlepay.io/" target="_blank" class="link-secondary">ROI LEDGER</a>.
+							This website is licensed under BitLicense. 
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+	<!-- Libs JS -->
+	<script src="./dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Tabler Core -->
+	<script src="./dist/js/tabler.min.js"></script>
+	<!-- Dark Mode -->
+	<script src="./dist/js/dark-mode.js"></script>
+	<script>
+		document.body.style.display = "block"
 
-          <li class="nav-item">
-            <a class="nav-link" href="logout.php">
-              <i class="menu-icon mdi mdi-file-document"></i>
-              <span class="menu-title">Logout</span>
-            </a>
-          </li>
-
-
-        </ul>
-      </nav>
-      <!-- partial -->
-      <div class="main-panel">
-        <div class="content-wrapper">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="home-tab">
-                <div class="d-sm-flex align-items-center justify-content-between border-bottom">
-                  <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item">
-                      <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
-                    </li>
-                   
-                  </ul>
-                  <div>
-                    <div class="btn-wrapper">
-                      <a href="#" class="btn btn-otline-dark align-items-center"><i class="icon-share"></i> Share</a>
-                      <a href="#" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
-                      <a href="#" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="tab-content tab-content-basic">
-                  <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview"> 
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <div class="statistics-details d-flex align-items-center justify-content-between">
-                          <div>
-                            <p class="statistics-title">Bounce Rate</p>
-                            <h3 class="rate-percentage">32.53%</h3>
-                            <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p>
-                          </div>
-                          <div>
-                            <p class="statistics-title">Active Users</p>
-                            <h3 class="rate-percentage">7,682</h3>
-                            <p class="text-success d-flex"><i class="mdi mdi-menu-up"></i><span>+0.1%</span></p>
-                          </div>
-                          <div>
-                            <p class="statistics-title">New Sessions</p>
-                            <h3 class="rate-percentage">68.8</h3>
-                            <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>68.8</span></p>
-                          </div>
-                          <div class="d-none d-md-block">
-                            <p class="statistics-title">Avg. User Time on Site</p>
-                            <h3 class="rate-percentage">7m:21s</h3>
-                            <p class="text-success d-flex"><i class="mdi mdi-menu-down"></i><span>+1.4%</span></p>
-                          </div>
-                          <div class="d-none d-md-block">
-                            <p class="statistics-title">Old Sessions</p>
-                            <h3 class="rate-percentage">28.3</h3>
-                            <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>28.3</span></p>
-                          </div>
-                          <div class="d-none d-md-block">
-                            <p class="statistics-title">Avg. Time on Site</p>
-                            <h3 class="rate-percentage">2m:35s</h3>
-                            <p class="text-success d-flex"><i class="mdi mdi-menu-down"></i><span>+0.8%</span></p>
-                          </div>
-                        </div>
-                      </div>
-                    </div> 
-                    <div class="row">
-                      <div class="col-lg-8 d-flex flex-column">
-                        <div class="row flex-grow">
-                          <div class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                              <div class="card-body">
-                                <div class="d-sm-flex justify-content-between align-items-start">
-                                  
-                                 
-                                  </div>
-                                <div class="d-sm-flex align-items-center mt-1 justify-content-between">
-                                  <p><h4 class="card-title card-title-dash">ACCUMULATED PROFITS:</h4></p>
-                                  <div class="d-sm-flex align-items-center mt-4 justify-content-between"><h2 class="me-2 fw-bold">$<?php echo $_SESSION['profits']; ?></h2><h4 class="me-2">USD</h4><h4 class="text-success">(+1.37%)</h4></div>
-                                  
-                                </div>
-                                <div class="chartjs-wrapper mt-5">
-                                  <canvas id="performaneLine"></canvas>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 d-flex flex-column">
-                        <div class="row flex-grow">
-                          <div class="col-md-6 col-lg-12 grid-margin stretch-card">
-                            <div class="card bg-primary card-rounded">
-                              <div class="card-body pb-0">
-                                <h4 class="card-title card-title-dash text-white mb-4">Expected Profits</h4>
-                                <div class="row">
-                                  <div class="col-sm-4">
-                                    <p class="status-summary-ight-white mb-1">This week</p>
-                                    <h2 class="text-info">357</h2>
-                                  </div>
-                                  <div class="col-sm-8">
-                                    <div class="status-summary-chart-wrapper pb-4">
-                                      <canvas id="status-summary"></canvas>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6 col-lg-12 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                              <div class="card-body">
-                                <div class="row">
-                                  <div class="col-sm-6">
-                                    <div class="d-flex justify-content-between align-items-center mb-2 mb-sm-0">
-                                      <div class="circle-progress-width">
-                                        <div id="totalVisitors" class="progressbar-js-circle pr-2"></div>
-                                      </div>
-                                      <div>
-                                        <p class="text-small mb-2">Total Visitors</p>
-                                        <h4 class="mb-0 fw-bold">76.80%</h4>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="col-sm-6">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                      <div class="circle-progress-width">
-                                        <div id="visitperday" class="progressbar-js-circle pr-2"></div>
-                                      </div>
-                                      <div>
-                                        <p class="text-small mb-2">Visits per day</p>
-                                        <h4 class="mb-0 fw-bold">9065</h4>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-lg-8 d-flex flex-column">
-                        <div class="row flex-grow">
-                          <div class="col-12 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                              <div class="card-body">
-                                <div class="d-sm-flex justify-content-between align-items-start">
-                                  <div>
-                                    <h4 class="card-title card-title-dash">Bitcoin Overview</h4>
-                                   <p class="card-subtitle card-subtitle-dash">Bitcoin trend in 1 year</p>
-                                  </div>
-                                </div>
-                                
-                                <div class="chartjs-bar-wrapper mt-3">
-                                  <canvas id="marketingOverview"></canvas>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div class="row flex-grow">
-                          <div class="col-12 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                              <div class="card-body">
-                                <div class="d-sm-flex justify-content-between align-items-start">
-                                  <div>
-                                    <h4 class="card-title card-title-dash">Account Managers Stat</h4>
-                                   <p class="card-subtitle card-subtitle-dash">This list was last updated 6mo ago</p>
-                                  </div>
-                                 
-                                </div>
-                                <div class="table-responsive  mt-1">
-                                  <table class="table select-table">
-                                    <thead>
-                                      <tr>
-                                        <th>
-                                          <div class="form-check form-check-flat mt-0">
-                                            <label class="form-check-label">
-                                              <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                          </div>
-                                        </th>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Progress</th>
-                                        <th>Status</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                        <td>
-                                          <div class="form-check form-check-flat mt-0">
-                                            <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="d-flex ">
-                                            <img src="images/faces/face1.jpg" alt="">
-                                            <div>
-                                              <h6>Brandon Washington</h6>
-                                              <p>01</p>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <h6>Investment Analyst</h6>
-                                          <p>Senior</p>
-                                        </td>
-                                        <td>
-                                          <div>
-                                            <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                              <p class="text-success">85%</p>
-                                              <p>85/100</p>
-                                            </div>
-                                            <div class="progress progress-md">
-                                              <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                          </div>
-                                        </td>
-                                         <td><div class="badge badge-opacity-success">Excellent</div></td>
-                                      </tr>
-                                      <tr>
-                                        <td>
-                                          <div class="form-check form-check-flat mt-0">
-                                            <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="d-flex">
-                                            <img src="images/faces/face2.jpg" alt="">
-                                            <div>
-                                              <h6>Laura Brooks</h6>
-                                              <p>02</p>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <h6>Investment Analyst</h6>
-                                          <p>Senior</p>
-                                        </td>
-                                        <td>
-                                          <div>
-                                            <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                              <p class="text-success">76%</p>
-                                              <p>76/100</p>
-                                            </div>
-                                            <div class="progress progress-md">
-                                              <div class="progress-bar bg-success" role="progressbar" style="width: 76%" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                          </div>
-                                        </td>
-                                         <td><div class="badge badge-opacity-success">Excellent</div></td>
-                                      </tr>
-                                      <tr>
-                                        <td>
-                                          <div class="form-check form-check-flat mt-0">
-                                            <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="d-flex">
-                                            <img src="images/faces/face3.jpg" alt="">
-                                            <div>
-                                              <h6>Wayne Murphy</h6>
-                                              <p>03</p>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <h6>Investment Analyst</h6>
-                                          <p>Senior</p>
-                                        </td>
-                                        <td>
-                                          <div>
-                                            <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                              <p class="text-success">65%</p>
-                                              <p>65/100</p>
-                                            </div>
-                                            <div class="progress progress-md">
-                                              <div class="progress-bar bg-warning" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                          </div>
-                                        </td>
-                                         <td><div class="badge badge-opacity-success">Fair</div></td>
-                                      </tr>
-                                      <tr>
-                                        <td>
-                                          <div class="form-check form-check-flat mt-0">
-                                            <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="d-flex">
-                                            <img src="images/faces/face4.jpg" alt="">
-                                            <div>
-                                              <h6>Matthew Bailey</h6>
-                                              <p>04</p>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <h6>Investment Analyst</h6>
-                                          <p>Junior</p>
-                                        </td>
-                                        <td>
-                                          <div>
-                                            <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                              <p class="text-success">38%</p>
-                                              <p>38/100</p>
-                                            </div>
-                                            <div class="progress progress-md">
-                                              <div class="progress-bar bg-danger" role="progressbar" style="width: 38%" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td><div class="badge badge-opacity-danger">Poor</div></td>
-                                      </tr>
-                                      <tr>
-                                        <td>
-                                          <div class="form-check form-check-flat mt-0">
-                                            <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="d-flex">
-                                            <img src="images/faces/face5.jpg" alt="">
-                                            <div>
-                                              <h6>Katherine Butler</h6>
-                                              <p>05</p>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <h6>Investment Analyst</h6>
-                                          <p>Senior</p>
-                                        </td>
-                                        <td>
-                                          <div>
-                                            <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                              <p class="text-success">88%</p>
-                                              <p>88/100</p>
-                                            </div>
-                                            <div class="progress progress-md">
-                                              <div class="progress-bar bg-success" role="progressbar" style="width: 88%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td><div class="badge badge-opacity-success">Excellent</div></td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row flex-grow">
-                          <div class="col-md-6 col-lg-6 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                              <div class="card-body card-rounded">
-                                <h4 class="card-title  card-title-dash">ROI LEDGER Recent Events</h4>
-                                <div class="list align-items-center border-bottom py-2">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-2 font-weight-medium">
-                                      Change in Directors
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                      <div class="d-flex align-items-center">
-                                        <i class="mdi mdi-calendar text-muted me-1"></i>
-                                        <p class="mb-0 text-small text-muted">Aug 14, 2022</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="list align-items-center border-bottom py-2">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-2 font-weight-medium">
-                                      Live Conference In NY
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                      <div class="d-flex align-items-center">
-                                        <i class="mdi mdi-calendar text-muted me-1"></i>
-                                        <p class="mb-0 text-small text-muted">Feb 11, 2022</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="list align-items-center border-bottom py-2">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-2 font-weight-medium">
-                                      Quarterly Report
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                      <div class="d-flex align-items-center">
-                                        <i class="mdi mdi-calendar text-muted me-1"></i>
-                                        <p class="mb-0 text-small text-muted">Mar 21, 2019</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="list align-items-center border-bottom py-2">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-2 font-weight-medium">
-                                      Change in Company Exec's
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                      <div class="d-flex align-items-center">
-                                        <i class="mdi mdi-calendar text-muted me-1"></i>
-                                        <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                
-                                <div class="list align-items-center pt-3">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-0">
-                                      <a href="#" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6 col-lg-6 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                              <div class="card-body">
-                                <div class="d-flex align-items-center justify-content-between mb-3">
-                                  <h4 class="card-title card-title-dash">Recent Withdrawals</h4>
-                                  <p class="mb-0">20 Paid, 5 pending</p>
-                                </div>
-                                <ul class="bullet-line-list">
-                                  <li>
-                                    <div class="d-flex justify-content-between">
-                                      <div><span class="text-light-green">Ben Tossell</span> Paid</div>
-                                      <p>Just now</p>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div class="d-flex justify-content-between">
-                                      <div><span class="text-light-green">Oliver Noah</span> Paid</div>
-                                      <p>1h</p>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div class="d-flex justify-content-between">
-                                      <div><span class="text-light-green">Jack William</span> Paid</div>
-                                      <p>1h</p>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div class="d-flex justify-content-between">
-                                      <div><span class="text-light-green">Leo Lucas</span> Paid</div>
-                                      <p>1h</p>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div class="d-flex justify-content-between">
-                                      <div><span class="text-light-green">Thomas Henry</span> Paid</div>
-                                      <p>1h</p>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div class="d-flex justify-content-between">
-                                      <div><span class="text-light-green">Ben Tossell</span> Paid</div>
-                                      <p>1h</p>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div class="d-flex justify-content-between">
-                                      <div><span class="text-light-green">Ben Tossell</span> Paid</div>
-                                      <p>1h</p>
-                                    </div>
-                                  </li>
-                                </ul>
-                                <div class="list align-items-center pt-3">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-0">
-                                      <a href="#" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 d-flex flex-column">
-                        <div class="row flex-grow">
-                          <div class="col-12 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                              <div class="card-body">
-                                <div class="row">
-                                  <div class="col-lg-12">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                      <h4 class="card-title card-title-dash">Getting Started</h4>
-                                      <div class="add-items d-flex mb-0">
-                                        <!-- <input type="text" class="form-control todo-list-input" placeholder="What do you need to do today?"> -->
-                                        <button class="add btn btn-icons btn-rounded btn-primary todo-list-add-btn text-white me-0 pl-12p"><i class="mdi mdi-plus"></i></button>
-                                      </div>
-                                    </div>
-                                    <div class="list-wrapper">
-                                      <ul class="todo-list todo-list-rounded">
-                                        <li class="d-block">
-                                          <div class="form-check w-100">
-                                            <label class="form-check-label">
-                                              <input class="checkbox" type="checkbox" checked> Create an account on ROI LEDGER <i class="input-helper rounded"></i>
-                                            </label>
-                                            <div class="d-flex mt-2">
-                                              <div class="ps-4 text-small me-3"><?php echo $_SESSION['trn_date']; ?></div>
-                                              <div class="badge badge-opacity-success me-3">Done</div>
-                                              <i class="mdi mdi-flag ms-2 flag-color"></i>
-                                            </div>
-                                          </div>
-                                        </li>
-                                        <li class="d-block">
-                                          <div class="form-check w-100">
-                                            <label class="form-check-label">
-                                              <input class="checkbox" type="checkbox"> Get familiar with the ROI LEDGER Dashboard <i class="input-helper rounded"></i>
-                                            </label>
-                                            <div class="d-flex mt-2">
-                                              <div class="ps-4 text-small me-3">no timeframe</div>
-                                              <div class="badge badge-opacity-warning me-3">In Progress</div>
-                                            </div>
-                                          </div>
-                                        </li>
-                                        <li>
-                                          <div class="form-check w-100">
-                                            <label class="form-check-label">
-                                              <input class="checkbox" type="checkbox"> Make a deposit on ROI LEDGER and earn $25 <i class="input-helper rounded"></i>
-                                            </label>
-                                            <div class="d-flex mt-2">
-                                              <div class="ps-4 text-small me-3">today</div>
-                                              <div class="badge badge-opacity-warning me-3">Not yet</div>
-                                            </div>
-                                          </div>
-                                        </li>
-                                        <li class="border-bottom-0">
-                                          <div class="form-check w-100">
-                                            <label class="form-check-label">
-                                              <input class="checkbox" type="checkbox"> Refer a friend and earn $10 <i class="input-helper rounded"></i>
-                                            </label>
-                                            <div class="d-flex mt-2">
-                                              <div class="ps-4 text-small me-3">19 Mar 2023</div>
-                                              <div class="badge badge-opacity-danger me-3">Expired</div>
-                                            </div>
-                                          </div>
-                                        </li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row flex-grow">
-                          <div class="col-12 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                              <div class="card-body">
-                                <div class="row">
-                                  <div class="col-lg-12">
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                      <h4 class="card-title card-title-dash">Type By Amount</h4>
-                                    </div>
-                                    <canvas class="my-auto" id="doughnutChart" height="200"></canvas>
-                                    <div id="doughnut-chart-legend" class="mt-5 text-center"></div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row flex-grow">
-                          <div class="col-12 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                              <div class="card-body">
-                                <div class="row">
-                                  <div class="col-lg-12">
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                      <div>
-                                        <h4 class="card-title card-title-dash">Leave Report</h4>
-                                      </div>
-                                      <div>
-                                        <div class="dropdown">
-                                          <button class="btn btn-secondary dropdown-toggle toggle-dark btn-lg mb-0 me-0" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Month Wise </button>
-                                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                                            <h6 class="dropdown-header">week Wise</h6>
-                                            <a class="dropdown-item" href="#">Year Wise</a>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="mt-3">
-                                      <canvas id="leaveReport"></canvas>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row flex-grow">
-                          <div class="col-12 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                              <div class="card-body">
-                                <div class="row">
-                                  <div class="col-lg-12">
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                      <div>
-                                        <h4 class="card-title card-title-dash">Top Account Managers</h4>
-                                      </div>
-                                    </div>
-                                    <div class="mt-3">
-                                      <div class="wrapper d-flex align-items-center justify-content-between py-2 border-bottom">
-                                        <div class="d-flex">
-                                          <img class="img-sm rounded-10" src="images/faces/face1.jpg" alt="profile">
-                                          <div class="wrapper ms-3">
-                                            <p class="ms-1 mb-1 fw-bold">Brandon Washington</p>
-                                            <small class="text-muted mb-0">100543</small>
-                                          </div>
-                                        </div>
-                                        <div class="text-muted text-small">
-                                          1h ago
-                                        </div>
-                                      </div>
-                                      <div class="wrapper d-flex align-items-center justify-content-between py-2 border-bottom">
-                                        <div class="d-flex">
-                                          <img class="img-sm rounded-10" src="images/faces/face2.jpg" alt="profile">
-                                          <div class="wrapper ms-3">
-                                            <p class="ms-1 mb-1 fw-bold">Wayne Murphy</p>
-                                            <small class="text-muted mb-0">100543</small>
-                                          </div>
-                                        </div>
-                                        <div class="text-muted text-small">
-                                          3h ago
-                                        </div>
-                                      </div>
-                                      <div class="wrapper d-flex align-items-center justify-content-between py-2 border-bottom">
-                                        <div class="d-flex">
-                                          <img class="img-sm rounded-10" src="images/faces/face3.jpg" alt="profile">
-                                          <div class="wrapper ms-3">
-                                            <p class="ms-1 mb-1 fw-bold">Katherine Butler</p>
-                                            <small class="text-muted mb-0">100543</small>
-                                          </div>
-                                        </div>
-                                        <div class="text-muted text-small">
-                                          4h ago
-                                        </div>
-                                      </div>
-                                      <div class="wrapper d-flex align-items-center justify-content-between py-2 border-bottom">
-                                        <div class="d-flex">
-                                          <img class="img-sm rounded-10" src="images/faces/face4.jpg" alt="profile">
-                                          <div class="wrapper ms-3">
-                                            <p class="ms-1 mb-1 fw-bold">Matthew Bailey</p>
-                                            <small class="text-muted mb-0">100543</small>
-                                          </div>
-                                        </div>
-                                        <div class="text-muted text-small">
-                                          4h ago
-                                        </div>
-                                      </div>
-                                      <div class="wrapper d-flex align-items-center justify-content-between pt-2">
-                                        <div class="d-flex">
-                                          <img class="img-sm rounded-10" src="images/faces/face5.jpg" alt="profile">
-                                          <div class="wrapper ms-3">
-                                            <p class="ms-1 mb-1 fw-bold">Rafell John</p>
-                                            <small class="text-muted mb-0">Alaska, USA</small>
-                                          </div>
-                                        </div>
-                                        <div class="text-muted text-small">
-                                          6h ago
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
-        <footer class="footer">
-          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">ROI LEDGER <a href="https://www.ROI LEDGER.org/" target="_blank">Secure Dashboard</a></span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
-          </div>
-        </footer>
-        <!-- partial -->
-      </div>
-      <!-- main-panel ends -->
-    </div>
-    <!-- page-body-wrapper ends -->
-  </div>
-  <!-- container-scroller -->
-
-  <!-- plugins:js -->
-  <script src="vendors/js/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
-  <script src="vendors/chart.js/Chart.min.js"></script>
-  <script src="vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-  <script src="vendors/progressbar.js/progressbar.min.js"></script>
-
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
-  <script src="js/off-canvas.js"></script>
-  <script src="js/hoverable-collapse.js"></script>
-  <script src="js/template.js"></script>
-  <script src="js/settings.js"></script>
-  <script src="js/todolist.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page-->
-  <script src="js/dashboard.js"></script>
-  <script src="js/Chart.roundedBarCharts.js"></script>
-  <!-- End custom js for this page-->
+	</script>
 </body>
 
 </html>
-
