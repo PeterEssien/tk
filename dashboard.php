@@ -3,7 +3,7 @@ require('db.php');
 include("auth.php");
 ?>
 
-<!doctype html>
+<!doctype html>f
 <html lang="en">
 
 <head>
@@ -214,7 +214,7 @@ include("auth.php");
 									<div id="tab-top-1" class="tab-pane show active">
 										<div class="card-body">
 											<div class="mb-3">
-												<label class="form-label">Wallet Address:</label>
+												<label class="form-label">USDT Wallet Address:</label>
 												<textarea rows="3" class="form-control" placeholder="Wallet Address"></textarea>
 											</div>
 											<div class="mb-3">
@@ -246,7 +246,7 @@ include("auth.php");
 												<div class="d-flex">
 													<label class="form-label">Wallet Address:</label>
 													<div class="ml-auto form-label">
-														<a href="#" class="small">Copy to Clipboard</a>
+														<a href="#" class="small">Deposit Other Coins</a>
 													</div>
 												</div>
 												<textarea rows="3" class="form-control" disabled>TD5QhqTXur2UtAnrKfD6PEecNkn5nxcisN</textarea>
