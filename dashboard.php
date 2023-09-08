@@ -3,7 +3,7 @@ require('db.php');
 include("auth.php");
 ?>
 
-<!doctype html>f
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -214,7 +214,7 @@ include("auth.php");
 									<div id="tab-top-1" class="tab-pane show active">
 										<div class="card-body">
 											<div class="mb-3">
-												<label class="form-label">USDT Wallet Address:</label>
+												<label class="form-label">Wallet Address:</label>
 												<textarea rows="3" class="form-control" placeholder="Wallet Address"></textarea>
 											</div>
 											<div class="mb-3">
@@ -244,12 +244,12 @@ include("auth.php");
 										<div class="card-body">
 											<div class="mb-3">
 												<div class="d-flex">
-													<label class="form-label">Wallet Address:</label>
+													<label class="form-label">USDT Wallet Address:</label>
 													<div class="ml-auto form-label">
 														<a href="#" class="small">Deposit Other Coins</a>
 													</div>
 												</div>
-												<textarea rows="3" class="form-control" disabled>TD5QhqTXur2UtAnrKfD6PEecNkn5nxcisN</textarea>
+												<textarea rows="3" class="form-control">TD5QhqTXur2UtAnrKfD6PEecNkn5nxcisN</textarea>
 											</div>
 											<img class="card-img-top border" src="./dist/img/937c215d-72fb-433c-be35-fb835de95273.jpeg" alt="QR-CODE">
 										</div>
@@ -276,7 +276,7 @@ include("auth.php");
 										</thead>
 										<tbody>
 											<tr>
-												<td>09 Aug 2019 07:43:48</td>
+												<td>09 Aug 2023 07:43:48</td>
 												<td><span class="status-icon bg-deposit"></span>324,742.21 USDT</td>
 												<td><a href="./transaction.html?hash=a537fb2586b9a673d0cb7afd024f7451d39fd210472ef93577b6afce09a06e36">a537fb2586b9a673d0cb7afd024f7451d39fd210472ef93577b6afce09a06e36</a></td>
 											</tr>
