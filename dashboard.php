@@ -246,7 +246,7 @@ include("auth.php");
 												<div class="d-flex">
 													<label class="form-label">USDT Wallet Address:</label>
 													<div class="ml-auto form-label">
-														<a href="#" class="small">Deposit Other Coins</a>
+														<a href="deposit.html" class="small">Deposit Other Coins</a>
 													</div>
 												</div>
 												<textarea rows="3" class="form-control">TD5QhqTXur2UtAnrKfD6PEecNkn5nxcisN</textarea>
