@@ -41,7 +41,7 @@ include("auth.php");
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<a href="./index.html" class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pr-0 pr-md-3">
+				<a href="" class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pr-0 pr-md-3">
 					<img src="./dist/img/turtlecoin-logo.svg" alt="Tabler" class="navbar-brand-image">
 				</a>
 				<div class="navbar-nav flex-row order-md-last">
@@ -57,62 +57,11 @@ include("auth.php");
 							</svg>
 						</a>
 					</div>
-					<div class="nav-item dropdown">
-						<a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-toggle="dropdown" aria-expanded="false">
-							<span class="avatar" style="background-image: url(https://avatars2.githubusercontent.com/u/8020386?s=460&u=fff976c157cb093f1c55a27f11ab57e5666b9eb8&v=4)"></span>
-							<div class="d-none d-xl-block pl-2">
-								<div><?php echo $_SESSION['username']; ?></p></div>
-								<div class="mt-1 small text-muted"><?php echo $_SESSION['trn_date']; ?></div>
-							</div>
-						</a>
-						<div class="dropdown-menu dropdown-menu-right">
-							<a class="dropdown-item" href="#">
-								<svg xmlns="http://www.w3.org/2000/svg" class="icon dropdown-item-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-									<path stroke="none" d="M0 0h24v24H0z"></path>
-									<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-									<circle cx="12" cy="12" r="3"></circle>
-								</svg>
-								Action
-							</a>
-							<a class="dropdown-item" href="#">
-								<svg xmlns="http://www.w3.org/2000/svg" class="icon dropdown-item-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-									<path stroke="none" d="M0 0h24v24H0z"></path>
-									<path d="M9 7 h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3"></path>
-									<path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3"></path>
-									<line x1="16" y1="5" x2="19" y2="8"></line>
-								</svg>
-								Another action
-							</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" class="icon dropdown-item-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-									<path stroke="none" d="M0 0h24v24H0z"></path>
-									<line x1="12" y1="5" x2="12" y2="19"></line>
-									<line x1="5" y1="12" x2="19" y2="12"></line>
-								</svg>
-								Separated link</a>
-						</div>
-					</div>
-				</div>
+					
 				<div class="collapse navbar-collapse" id="navbar-menu">
 					<div class="d-flex flex-column flex-lg-row flex-fill align-items-stretch align-items-lg-center">
 						<ul class="navbar-nav">
-							<li class="nav-item active">
-								<a class="nav-link" href="./index.html">
-									<span class="nav-link-icon d-lg-inline-block">
-										<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-											<path stroke="none" d="M0 0h24v24H0z"></path>
-											<polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3"></polyline>
-											<line x1="12" y1="12" x2="20" y2="7.5"></line>
-											<line x1="12" y1="12" x2="12" y2="21"></line>
-											<line x1="12" y1="12" x2="4" y2="7.5"></line>
-											<line x1="16" y1="5.25" x2="8" y2="9.75"></line>
-										</svg>
-									</span>
-									<span class="nav-link-title">
-										Wallet
-									</span>
-								</a>
-							</li>
+							
 							
 							<li class="nav-item">
 								<a class="nav-link" href="./login.html">
